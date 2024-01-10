@@ -86,7 +86,6 @@ function Game:Init()
     Tetris.RemoveLineCb = RemoveLineEffect
     Tetris.RotateCb = RotateEffect
     Tetris.DropCb = DropEffect
-    Tetris.MoveCb = MoveEffect
     Tetris.LevelUpCb = LevelUpEffect
     Tetris.AddBonusCb = AddBonusEffect
 

@@ -128,7 +128,6 @@ end
 
 function Tetris:Move(deltaX)
     if not self.gameover then
-        self.MoveCb()
         local newX = self.stone.x + deltaX
         if newX < self.minX then
             newX = self.minX
@@ -144,7 +143,6 @@ end
 function Tetris:Score(removedLines, distance)
     if removedLines > 0 then
         self.removedLines = self.removedLines + removedLines
-        self.AddBonusCb()
         if removedLines == 1 then
             self.score = self.score + 50
         elseif removedLines == 2 then
@@ -152,6 +150,7 @@ function Tetris:Score(removedLines, distance)
         elseif removedLines == 3 then
             self.score = self.score + 300
         else
+            self.AddBonusCb()
             self.score = self.score + 600
         end
     end
@@ -184,7 +183,7 @@ function Tetris:Drop()
         self.stone.y = self.stone.y + 1
         if Tetris:CheckCollision(self.stone.shape, { self.stone.x, self.stone.y }) then
             Tetris:JoinShapeToBoard()
-            self.MoveCb()
+            self.DropCb()
             self.stone = self.nextStone
             self.nextStone = Tetris:NewStone()
             while true do
@@ -240,7 +239,6 @@ function Tetris:Init(rows, cols)
     self.RemoveLineCb = nil
     self.RotateCb = nil
     self.DropCb = nil
-    self.MoveCb = nil
     self.LevelUpCb = nil
     self.AddBonusCb = nil
 end

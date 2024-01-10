@@ -74,7 +74,7 @@ function Menu:keypressed(key)
         if self.selectedItem > #self.currentMenu then
             self.selectedItem = 1
         end
-    elseif key == 'return' or key == 'kpenter' then
+    elseif key == 'return' then
         Sound:menuChoice()
         if self.currentMenu[self.selectedItem] == MENU.play then
             Gamestate:setStateGame()
@@ -92,6 +92,8 @@ function Menu:keypressed(key)
         elseif self.currentMenu[self.selectedItem] == MENU.quit then
             love.event.quit()
         end
+    elseif key=="escape" and Gamestate.pause then
+        Gamestate:tooglePause()
     end
 end
 

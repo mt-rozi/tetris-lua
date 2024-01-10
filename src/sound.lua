@@ -15,7 +15,6 @@ function Sound:Init()
         removedLine = love.audio.newSource(self.dirpath .. "removeLine.wav", "stream"),
         rotate = love.audio.newSource(self.dirpath .. "rotate.wav", "stream"),
         drop = love.audio.newSource(self.dirpath .. "drop.wav", "stream"),
-        move = love.audio.newSource(self.dirpath .. "move.wav", "stream"),
         levelUp = love.audio.newSource(self.dirpath .. "levelup.wav", "stream"),
         addBonus = love.audio.newSource(self.dirpath .. "bonus.wav", "stream"),
         menuChoice = love.audio.newSource(self.dirpath .. "menuChoice.wav", "stream"),
@@ -48,10 +47,6 @@ end
 
 function Sound:drop()
     Sound:play(self.sounds.drop)
-end
-
-function Sound:move()
-    Sound:play(self.sounds.move)
 end
 
 function Sound:levelUp()
