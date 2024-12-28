@@ -1,4 +1,4 @@
-## Tetris Lua - zadanie 4
+## Tetris Lua
 
 ### Spis treści
 
